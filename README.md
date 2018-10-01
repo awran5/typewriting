@@ -22,4 +22,4 @@ Inspired by [TraversyMedia](https://www.traversymedia.com/). I've made some chan
     <span class="typewrite" data-loop="yes" data-speed="100" data-delay="1000" data-words='["word 1", "word 2", "word 3"]'></span>
 </h3>
 ```
-3. [Demo](https://awran5.github.io/typewriting/)
+## [Demo](https://awran5.github.io/typewriting/)
