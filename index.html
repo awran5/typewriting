@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <title>TypeWriting</title>
+</head>
+    <body>
+    <!-- Start container -->
+    <header class="py-5">
+        <div class="container">
+            <h1 class="my-5 text-center">TypeWriting
+                <span class="typewrite" data-loop="yes" data-speed="100" data-delay="1000" data-words='["is easy to use.", "is simple.", "is free!", "no dependencies!"]'></span>
+            </h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-10 m-auto">
+
+                <p>TypeWriting is a <strong>tiny</strong> lightweight plugin for adding nice, customizable Typewriting effect using custom <strong>HTML5 attributes.</strong> This plugin is written in <strong>native</strong> JavaScript ES6 and does not requires any <strong>dependencies!</strong></p>
+                <p class="text-muted small">Inspired by <a href="https://www.traversymedia.com/">TraversyMedia</a>. I've made some changes and modifications to suit my needs, if you have an issue/idea, please feel free to fork the repo or send me a push request and i'll be happy to push it.</p>
+                <div class="text-center">
+                    <div class="btn-group my-5">
+                        <a class="btn btn-white border" href="https://github.com/awran5/typewriting/"><img src="svg/github.svg" height="15" alt="github"> Github</a>
+                        <a class="btn btn-white border" href="https://github.com/awran5/typewriting/archive/master.zip"><img src="svg/download-button.svg" height="15" alt="download-button"> Download</a>
+                        <a class="btn btn-success border" href="https://www.paypal.me/awran5"><img src="svg/paypal.svg" height="15" alt="paypal"> Donate</a>
+                    </div>
+                </div>
+
+                <hr>
+                <h2>Usage:</h2>
+                <br>
+                <p>1. Load the minified version <code>typewriting.min.js</code> by placing the script tag before the closing Body tag for better page speed performance.</p>
+<!-- start code -->
+<div class="code-highlight">
+<pre><code class="language-markup line-numbers">&lt;script src="js/typewriting.min.js"&gt;&lt;/script&gt;
+</code></pre>
+</div>
+<!-- end code -->
+            <p>2. Create an empty <code>span</code> tag with class name <code>typewrite</code>. You're able to pass the options using the custom <code>HTML5 attributes:</code></p>
+            <ul class="list-unstyled">
+                <li><code>* data-loop: </code>Stop the typing loop. Value shoud be <code>yes</code> or<code> no</code></li>
+                <li><code>* data-speed: </code>Typing speed in millisecond. Default value is <code>100</code></li>
+                <li><code>* data-delay: </code>Time delay after word is complete in millisecond. Default value is <code>1000</code></li>
+                <li><code>* data-words: </code>Words to add separated by comma i.e. <code>["...","...","..."]</code></li>
+            </ul>
+<!-- start code -->
+<div class="code-highlight">
+<pre><code class="language-markup line-numbers">&lt;h3&gt;Hey, I'm
+    &lt;span class="typewrite" data-loop="yes" data-speed="100" data-delay="1000" data-words='["word 1", "word 2", "word 3"]'&gt;&lt;/span&gt;
+&lt;/h3&gt;</code></pre>
+</div>
+        <p>Result:</p> 
+        <h3>Hey, I'm
+            <span class="typewrite" data-loop="yes" data-speed="100" data-delay="1000" data-words='["word 1", "word 2", "word 3"]'></span>
+        </h3>
+<!-- end code -->
+
+        <!-- start examples -->  
+        <!-- Footer -->
+        <hr class="mt-5">
+
+        <footer class="docs-footer small muted" role="contentinfo">
+        <div class="footer-info text-center">
+            <ul class="bs-docs-footer-links list-inline">
+                <li class="list-inline-item">v1.0.0</li>
+                <li class="list-inline-item"> - </li>
+                <li class="list-inline-item"><a href="https://github.com/awran5/typewriting/" target="_blank" title="GitHub">GitHub</a></li>
+                <li class="list-inline-item"> - </li>
+                <li class="list-inline-item"><a href="https://github.com/awran5/typewriting/issues" target="_blank" title="Issues">Issues</a></li>
+                <li class="list-inline-item"> - </li>
+                <li class="list-inline-item"><a href="https://www.paypal.me/awran5" title="Donate">Donate</a></li>
+            </ul>
+        </div>
+        <div class="copyright pt-4 py-1">
+            Copyright © 2018 <a href="https://github.com/awran5/" title="awran5">awran5</a>. All Rights Reserved.
+        </div>
+        </footer>
+
+        </div>
+    </div>
+</div>
+<!-- End container -->
+
+<!-- JavaScript -->
+<script src="js/prism.js"></script>
+<script src="js/typewriting.min.js"></script>
+    
+</body>
+</html>
+
+
