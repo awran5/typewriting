@@ -1,6 +1,6 @@
 # TypeWriting
 
-TypeWriting is a tiny lightweight plugin for adding nice, customizable Typewriting effect using custom HTML5 attributes. This plugin is written in native JavaScript ES6 and does not requires any dependencies!
+TypeWriting is a tiny lightweight JavaScript plugin for adding nice, customizable Typewriting effect using custom HTML5 attributes. This plugin is written in native JavaScript ES6 and does not requires any dependencies!
 
 Inspired by [TraversyMedia](https://www.traversymedia.com/). I've made some changes and modifications to suit my needs, if you have an issue/idea, please feel free to fork the repo or send me a push request and i'll be happy to push it.
 
