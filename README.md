@@ -12,10 +12,10 @@ Inspired by [TraversyMedia](https://www.traversymedia.com/). I've made some chan
 ```
 2. Create an empty `span` tag with class name `typewrite`. You're able to pass the options using the custom HTML5 attributes:
 
-**data-loop:** Stop the typing loop. Value shoud be `yes` or `no`
-**data-speed:** Typing speed in millisecond. Default value is `100`
-**data-delay:** Time delay after word is complete in millisecond. Default value is `1000`
-**data-words:** Words to add separated by comma i.e. `["...","...","..."]`
+- **data-loop:** Stop the typing loop. Value shoud be `yes` or `no`
+- **data-speed:** Typing speed in millisecond. Default value is `100`
+- **data-delay:** Time delay after word is complete in millisecond. Default value is `1000`
+- **data-words:** Words to add separated by comma i.e. `["...","...","..."]`
 
 ```html
 <h3>Hey, I'm
