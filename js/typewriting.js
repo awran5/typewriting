@@ -1,77 +1,72 @@
-/*
- * Plugin: TypeWriting v1.0.0
+/**
+ * @package     typeWriting
+ * @description Lightweight JavaScript plugin for adding nice, customizable Typewriting effect using custom HTML5 attributes.
+ * @author      Awran5 <github.com/awran5>
+ * @version     1.0.1
+ * @license     under MIT https://github.com/awran5/typewriting/blob/master/LICENSE
+ * @see         <github.com/awran5/typewriting>
+ * @tutorial    TraversyMedia https://www.youtube.com/watch?v=POX3dT-pB4E&t=307s
  */
-class TypeWriter {
 
-  constructor(element, words, speed, delay, loop) {
-    this.element = element; // HTML class selector
-    this.words = words; // typewriting words
-    this.txt = ''; // word letters
-    this.count = 0; // loop counter
-    this.speed = speed; // type speed
-    this.delay = delay; // delay before new word
-    this.loop = loop;
-    this.type(); // Type method
+
+class typeWriting {
+
+  constructor(element) {
+    this.element = element; // Selector
+    this.words = JSON.parse(element.getAttribute('data-words')); // Input words
+    this.speed = parseInt(element.getAttribute('data-speed'), 10) || 100; // fallback 100 ms
+    this.delay = parseInt(element.getAttribute('data-delay'), 10) || 1000; // fallback 1000 ms
+    this.loop = element.getAttribute('data-loop');
+    this.char = ''; // word letters
+    this.counter = 0; // loop counter
     this.isDeleting = false; // check when deleting letters
+    this.type(); // Typing method
   }
 
   type() {
+    // Set the words index.
+    const index = this.loop === 'yes' ? this.counter % this.words.length : this.counter;
+    // Get the full word
+    const fullWord = this.words[index];
+    // Typing speed
+    let typeSpeed = this.speed;
 
-    // Get the index from the words length.
-    const index = this.loop === "yes" ? this.count % this.words.length : this.count;
-    // fullTxt words
-    const fullTxt = this.words[index];
-
-    if (fullTxt) {
-      // Set typing speed
-      let typeSpeed = this.speed;
-
-      // Check if deleting
-      if (this.isDeleting) {
-        // Decrease the typing speed when deleting
-        typeSpeed /= 2;
-        // Remove char
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-      }
-      else {
-        // Add char
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
-      }
-      // Add to the DOM
-      this.element.innerHTML = `<span class="write">${this.txt}</span><span class="blinking-cursor">|</span>`;
-
-      // If word is completed
-      if (!this.isDeleting && this.txt === fullTxt) {
-        // break the loop before deletion.
-        if (this.loop === "no" && this.count >= this.words.length - 1) {
-          return;
-        }
-        // Set char delete to true
-        this.isDeleting = true;
-        // Set time delay before new word
-        typeSpeed = this.delay;
-      }
-      else if (this.isDeleting && this.txt === '') {
-        this.isDeleting = false;
-        // Move to next word
-        this.count++;
-      }
-      // Set time out
-      setTimeout(() => this.type(), typeSpeed);
+    if (this.isDeleting) {
+      // Divide speed by 2
+      typeSpeed /= 2;
+      // Add chars
+      this.char = fullWord.substring(0, this.char.length - 1);
+    } else {
+      // Delete chars
+      this.char = fullWord.substring(0, this.char.length + 1);
     }
+    // Display on DOM
+    this.element.innerHTML = `<span class="write">${this.char}</span><span class="blinking-cursor">|</span>`;
+    // When word is completed
+    if (!this.isDeleting && this.char === fullWord) {
+      // break the loop before deletion.
+      if (this.loop === "no" && this.counter >= this.words.length - 1) {
+        return;
+      }
+      // Set char delete to true
+      this.isDeleting = true;
+      // Set time delay before new word
+      typeSpeed = this.delay;
+    } else if (this.isDeleting && this.char === '') {
+      this.isDeleting = false;
+      // Move to next word
+      this.counter++;
+    }
+    // Set time out
+    setTimeout(() => this.type(), typeSpeed);
+
   }
+
 }
 
-// Init On DOM Load
-document.addEventListener('DOMContentLoaded', init);
-
+// Call the class on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', init)
+// Select all elements and trigger the class
 function init() {
-  document.querySelectorAll('.typewrite').forEach((element) => {
-    const words = JSON.parse(element.getAttribute('data-words'));
-    const speed = parseInt(element.getAttribute('data-speed'), 10) || 100; // fallback 100 ms
-    const delay = parseInt(element.getAttribute('data-delay'), 10) || 1000; // fallback 1000 ms
-    const loop = element.getAttribute('data-loop');
-    // Init TypeWriter
-    new TypeWriter(element, words, speed, delay, loop);
-  });
+  document.querySelectorAll('.typewrite').forEach(e => new typeWriting(e));
 }
